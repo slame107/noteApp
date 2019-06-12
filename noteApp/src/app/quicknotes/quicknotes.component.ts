@@ -54,7 +54,7 @@ export class QuicknotesComponent implements OnInit {
   }
  
   getQuicknotes() {
-    this._dataservice.processPost('/get-notes-list', {
+    this._dataservice.processPost('/get-note', {id:25
     })
       .subscribe(res => {
         console.log(res)

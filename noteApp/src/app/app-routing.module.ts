@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: QuicknotesComponent, pathMatch: 'full'},
   { path: 'noteslist', component: NotesListComponent, pathMatch: 'full'}
-  
 ];
 
 @NgModule({

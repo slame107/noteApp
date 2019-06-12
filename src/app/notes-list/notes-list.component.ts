@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service'; //added import to pull
 
 @Component({
   selector: 'app-notes-list',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesListComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[]= ['name', 'title', 'noteContent', 'lastModified'];
+  note_list: any[];
+
+  constructor(private _dataservice:BackendService) { } 
 
   ngOnInit() {
+    this.getNotesList();
   }
 
+  getNotesList() {
+    this._dataservice.processPost('/get-notes-list', {
+    })
+      .subscribe(res => {
+        this.note_list = res['list'];
+      });
+
+}
 }

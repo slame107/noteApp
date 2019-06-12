@@ -14,9 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NotesListComponent } from './notes-list/notes-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import {MatListModule} from '@angular/material/list';
-import {MatTableModule} from '@angular/material/table';
-import { Pipe, PipeTransform } from '@angular/core';
-import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +21,6 @@ import { TruncatePipe } from './truncate.pipe';
     QuicknotesComponent,
     SearchBoxComponent,
     NotesListComponent,
-    TruncatePipe,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +36,6 @@ import { TruncatePipe } from './truncate.pipe';
     MatAutocompleteModule,
     AppRoutingModule,
     MatListModule,
-    MatTableModule,
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]
