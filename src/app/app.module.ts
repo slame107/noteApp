@@ -17,6 +17,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { Pipe, PipeTransform } from '@angular/core';
 import { TruncatePipe } from './truncate.pipe';
+import {MatIconModule} from '@angular/material/icon';
+import { EditNoteComponent } from './edit-note/edit-note.component';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { TruncatePipe } from './truncate.pipe';
     SearchBoxComponent,
     NotesListComponent,
     TruncatePipe,
+    EditNoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { TruncatePipe } from './truncate.pipe';
     AppRoutingModule,
     MatListModule,
     MatTableModule,
+    MatIconModule,
+    MomentModule,
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]

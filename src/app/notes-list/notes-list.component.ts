@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BackendService } from '../services/backend.service'; //added import to pull
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes-list',
@@ -8,7 +9,7 @@ import { BackendService } from '../services/backend.service'; //added import to 
 })
 export class NotesListComponent implements OnInit {
 
-  displayedColumns: string[]= ['name', 'title', 'noteContent', 'lastModified'];
+  displayedColumns: string[]= ['title', 'noteContent', 'lastModified'];
   note_list: any[];
 
   constructor(private _dataservice:BackendService) { } 
@@ -25,4 +26,7 @@ export class NotesListComponent implements OnInit {
       });
 
 }
+
+//click method
+
 }

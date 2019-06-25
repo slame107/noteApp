@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { NotesService } from '../notes.service';
 import { BackendService } from '../services/backend.service';
+import {MatIconModule} from '@angular/material/icon';
+import { text } from '@angular/core/src/render3';
  
 export class Quicknotes {
   title: String;
@@ -16,11 +18,15 @@ export class Quicknotes {
   styleUrls: ['./quicknotes.component.css']
 })
 export class QuicknotesComponent implements OnInit {
+  @Output() addNewClassEvent = new EventEmitter();
+  @Output() cancelAddNewEvent = new EventEmitter();
  
   title = 'Note Generator';
   titleModel: String;
   contentModel: String;
   quicknotes: Quicknotes[];
+  add_class = false;
+  submitted = false;
  
   constructor(private notesService: NotesService, private _dataservice:BackendService) {
     this.titleModel = '';
@@ -36,6 +42,16 @@ export class QuicknotesComponent implements OnInit {
   }
   ngOnInit() {
     this.getQuicknotes();
+  }
+
+  addNewClass() {
+    this.add_class = true;
+    this.addNewClassEvent.emit(true);
+  }
+
+  cancelAddNew() {
+    this.add_class = false;
+    this.cancelAddNewEvent.emit(true);
   }
  
   createQuicknotes() {
@@ -60,4 +76,21 @@ export class QuicknotesComponent implements OnInit {
         console.log(res)
       });
   }
+  
+  addNote() {
+    this._dataservice
+      .processPost('/add-note', {
+        titleModel: this.titleModel,
+        contentModel: this.contentModel,
+      })
+      .subscribe(res => {
+        if(res['success']) {
+          console.log('success');
+  
+        }else {
+          
+        }
+          });
+  }
+
 }

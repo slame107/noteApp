@@ -2,6 +2,9 @@
   <h1>{{title}}</h1>
   <app-search-box></app-search-box>
 </div>
+<nav>
+  <a mat-raised-button color="primary" routerLink="/home">All Notes</a>
+</nav>
 <div class="example-container">
   <mat-form-field> <input matInput
     [(ngModel)]="titleModel" placeholder="Title"> </mat-form-field>
@@ -11,13 +14,14 @@
   <br> 
 </div>
  
-<button mat-raised-button color="accent" (click)="createQuicknotes()">
+<button mat-raised-button color="accent" (click)="addNote()">
   Add Note</button>
- <hr>
- <div style="text-align: center">
+
+ <!-- <hr> -->
+ <!-- <div style="text-align: center">
  <h2>My Note Collection:</h2>
-</div>
- <mat-list role="list">
+</div> -->
+ <!-- <mat-list role="list">
   <mat-list-item role="listitem">Note 1</mat-list-item>
   <mat-list-item role="listitem">Note 2</mat-list-item>
   <mat-list-item role="listitem">Note 3</mat-list-item>
@@ -25,7 +29,7 @@
   <mat-list-item role="listitem">Note 5</mat-list-item>
   <mat-list-item role="listitem">Note 6</mat-list-item>
   <mat-list-item role="listitem">Note 7</mat-list-item>
-</mat-list>
+</mat-list> -->
  <!-- List of notes -->
 <!-- <p *ngFor="let i of quicknotes">
     <mat-card-title> {{ i.title }}</mat-card-title>
